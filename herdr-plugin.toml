@@ -1,0 +1,89 @@
+# The Pending You plugin for Herdr. Generated from packages/herdr-plugin/src/manifest.ts in recordplane/pendingyou:
+# edit that, then run `pnpm --filter @pendingyou/herdr-plugin generate`.
+id = "pendingyou.herdr"
+name = "Pending You"
+version = "0.2.0"
+min_herdr_version = "0.9.0"
+description = "What your agents are waiting on you for, in Herdr: the card on each waiting agent’s row, a toast when one arrives, a key to the next pane waiting on you, and a popup that answers with a key once you sign it in. High-stakes cards stay in Pending You."
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["sh", "bin/run.sh", "herdr", "watch", "--ensure"]
+
+[[actions]]
+id = "open"
+title = "Pending You: what’s waiting on you"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "popup", "cards"]
+
+[[actions]]
+id = "next"
+title = "Pending You: next pane waiting on you"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "next"]
+
+[[actions]]
+id = "setup"
+title = "Pending You: set up (sign in, toasts, sidebar row, keys)"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "popup", "setup"]
+
+[[actions]]
+id = "doctor"
+title = "Pending You: check the setup"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "popup", "doctor"]
+
+[[actions]]
+id = "view"
+title = "Pending You: agents waiting on you first (on or off)"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "view"]
+
+[[actions]]
+id = "demo"
+title = "Pending You: demo cards (for screenshots)"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "popup", "demo"]
+
+[[actions]]
+id = "unconfigure"
+title = "Pending You: remove (badges, toasts, sidebar row, sign-in)"
+contexts = ["global"]
+command = ["sh", "bin/run.sh", "herdr", "unconfigure"]
+
+[[events]]
+on = "pane.agent_status_changed"
+command = ["sh", "bin/run.sh", "herdr", "event"]
+
+[[panes]]
+id = "cards"
+title = "Pending You"
+placement = "popup"
+width = "90%"
+height = "80%"
+command = ["sh", "bin/run.sh", "herdr", "open"]
+
+[[panes]]
+id = "setup"
+title = "Pending You: setup"
+placement = "popup"
+width = "90%"
+height = "90%"
+command = ["sh", "bin/run.sh", "herdr", "setup"]
+
+[[panes]]
+id = "doctor"
+title = "Pending You: check"
+placement = "popup"
+width = "80%"
+height = "70%"
+command = ["sh", "bin/run.sh", "herdr", "doctor", "--wait"]
+
+[[panes]]
+id = "demo"
+title = "Pending You (demo)"
+placement = "popup"
+width = "90%"
+height = "80%"
+command = ["sh", "bin/run.sh", "herdr", "open", "--demo"]
