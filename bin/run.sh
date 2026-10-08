@@ -1,7 +1,7 @@
 #!/bin/sh
 # Pending You for Herdr: every command of the plugin runs `pendingyou <args>` through this script. It runs the command
 # line `npx pendingyou init` set up on this computer (the script its agents' hooks run, which never moves), once that
-# one can answer from Herdr (it knows `app`); else pendingyou 0.32.0, through npx. Generated from packages/herdr-plugin/src/manifest.ts in
+# one can answer from Herdr (it knows `app`); else pendingyou 0.32.1, through npx. Generated from packages/herdr-plugin/src/manifest.ts in
 # recordplane/pendingyou.
 config=${PENDINGYOU_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/pendingyou}
 shim="$config/bin/pendingyou-hook"
@@ -22,7 +22,7 @@ if [ -x "$shim" ] && "$shim" app --help >/dev/null 2>&1; then
   exec "$shim" "$@"
 fi
 if command -v npx >/dev/null 2>&1; then
-  exec npx -y pendingyou@0.32.0 "$@"
+  exec npx -y pendingyou@0.32.1 "$@"
 fi
 echo "Pending You: this needs Node and its command line. Run: npx -y pendingyou@latest init" >&2
 exit 0
