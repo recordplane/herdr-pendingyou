@@ -21,6 +21,8 @@ in Pending You, where you hold to approve.
   lists the panes waiting on you: Enter opens the card in Pending You, `t` takes you to its pane.
 - **The Agents view** (optional): agents waiting on you first in Herdr's Agents panel.
 - **Your phone stays quiet** while you're active in Herdr, as it does while Pending You is open on your desk.
+- **Show in Herdr**, once Herdr is signed in: press it on a card in Pending You, at your desk or on your phone, and
+  Herdr moves to the pane of the agent that asked, on every client attached to it.
 
 ## Answering from the popup
 
@@ -106,7 +108,10 @@ characters) and their request ids. Herdr keeps them on this computer, shows them
 
 Signed in, the popup reads your cards from Pending You while it's open and sends what you press, with Herdr's own
 sign-in, kept with a key that never leaves this computer in `~/.config/pendingyou/apps/herdr.json` (readable only by
-you). It writes no card anywhere but your screen. Not signed in, the plugin never asks Pending You anything.
+you). It writes no card anywhere but your screen. Its watcher also waits on Pending You for your presses of Show in
+Herdr, which name a card, its agent and the agent's pane, never a card's words: it brings that pane to the front if it's
+still the agent's, on this Herdr, and does nothing else. Signed in before that existed? Setup offers to sign Herdr in
+again for it. Not signed in, the plugin never asks Pending You anything.
 
 ## Remove it
 
