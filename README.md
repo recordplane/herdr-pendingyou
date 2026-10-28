@@ -33,7 +33,7 @@ card naming Herdr and this computer, and you press and hold Allow. Herdr sees th
 | Key | What it does |
 |---|---|
 | `1`–`9` | Answer with that option (a card that takes several: choose, then Enter) |
-| `y` / `n` | Approve or decline; looks good or needs changes; a step done, or not (then which and what happened); got it |
+| `y` / `n` | Approve or decline; looks good or needs changes; a step done, or not (then which and what happened); got it; on "Ask Maple again?", yes this time or no |
 | Enter | Write an answer (Enter sends, Esc goes back) |
 | Tab | The next question of a card with several (Enter sends them all) |
 | `r` | Write to the agent that asked |
